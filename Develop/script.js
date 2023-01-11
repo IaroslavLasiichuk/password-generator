@@ -1,20 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Set up the character lists that can be included in the password
-var lowerCases = "abcdefghijklmnopqrstuvwxyz";
-var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numbers = "0123456789";
-var specialCharacters = "!@#$%^&*()_+-=[]{};':\"|.<>/?\\";
-
-// Initialize the password as an empty array
-var password = [];
-
+// Function for password generator
 function generatePassword() {
+
+  // Set up the character lists that can be included in the password
+  var lowerCases = "abcdefghijklmnopqrstuvwxyz";
+  var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numbers = "0123456789";
+  var specialCharacters = "!@#$%^&*()_+-=[]{};':\"|.<>/?\\";
+
+  // Initialize the password as an empty array
+  var password = [];
   // Promt user to start password generator
   var passwordLength = prompt("Enter the desired password length (8-128 characters):");
 
-   // Validate the user's input
+  // Validate the user's input
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Please enter correct number at least 8 characters and no more than 128 characters");
     return;
@@ -25,44 +26,45 @@ function generatePassword() {
   var includeNumeric = confirm("Include numeric characters in the password?");
   var includeSpecial = confirm("Include special characters in the password?");
 
-   // Use a for loop to continuously prompt the user for password criteria until at least one character type is selected
+  // Use a for loop to continuously prompt the user for password criteria until at least one character type is selected
   if (passwordLength > 8 && passwordLength < 128) {
     for (let i = 0; i < passwordLength; i++) {
 
-         // Initialize the character list as an empty string
-          var charList = "";
+      // Initialize the character list as an empty string
+      var charList = "";
 
-          // Prompt the user for password criteria
-          if (includeLowercase) {
-              charList += lowerCases;
-          }
-
-          if (includeUppercase) {
-              charList += upperCases;
-          }
-
-          if (includeNumeric) {
-              charList += numbers;
-          }
-
-          if (includeSpecial) {
-              charList += specialCharacters;
-          }
-
-          // Generate a random index to select a character from the charList
-          var index = Math.floor(Math.random() * charList.length);
-
-          // Add the character at the randomly-selected index to the password
-          password += charList[index];
+      // Prompt the user for password criteria
+      if (includeLowercase) {
+        charList += lowerCases;
       }
+
+      if (includeUppercase) {
+        charList += upperCases;
+      }
+
+      if (includeNumeric) {
+        charList += numbers;
+      }
+
+      if (includeSpecial) {
+        charList += specialCharacters;
+      }
+
+      // Generate a random index to select a character from the charList
+      var index = Math.floor(Math.random() * charList.length);
+
+      // Add the character at the randomly-selected index to the password
+      password += charList[index];
+    }
   }
-      // Validate the user's input
+  // Validate the user's input
   if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
-      alert("You must select at least one character type to include in the password!");
-      generatePassword();
+    alert("You must select at least one character type to include in the password!");
+    generatePassword();
   }
   return password;
 }
+
 
 // Write password to the #password input
 function writePassword() {

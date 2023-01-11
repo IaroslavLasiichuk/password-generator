@@ -10,6 +10,27 @@ var lowerCases = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 // Initialize the password as an empty array
 var password = [];
 
+function generatePassword() {
+  // Promt user to start password generator
+  var startApp = confirm("Do you want generate password?");
+  if (!startApp) {
+      alert('OK Mayby next time');
+      return;
+  }
+
+  var passwordLength = prompt("Enter the desired password length (8-128 characters):");
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Enter correct number");
+    console.log(passwordLength);
+    generatePassword();
+  }
+  var includeLowercase = confirm("Include lowercase characters in the password?");
+  var includeUppercase = confirm("Include uppercase characters in the password?");
+  var includeNumeric = confirm("Include numeric characters in the password?");
+  var includeSpecial = confirm("Include special characters in the password?");
+  return password
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();

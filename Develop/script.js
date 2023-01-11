@@ -13,12 +13,16 @@ var password = [];
 function generatePassword() {
   // Promt user to start password generator
   var startApp = confirm("Do you want generate password?");
-  console.log(startApp);
   if (!startApp) {
-    console.log(startApp);
-    alert('OK Mayby next time');
-    return;
+      alert('OK Mayby next time');
+      return;
   }
+  var passwordLength = prompt("Enter the desired password length (8-128 characters):");
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Enter correct number");
+    generatePassword();
+  }
+  return password
 }
 
 // Write password to the #password input

@@ -13,6 +13,7 @@ var password = [];
 function generatePassword() {
   // Promt user to start password generator
   var startApp = confirm("Do you want generate password?");
+  console.log(startApp);
   if (!startApp) {
     console.log(startApp);
     alert('OK Mayby next time');

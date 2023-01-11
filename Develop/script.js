@@ -17,6 +17,13 @@ function generatePassword() {
       alert('OK Mayby next time');
       return;
   }
+
+  
+  var includeLowercase = confirm("Include lowercase characters in the password?");
+  var includeUppercase = confirm("Include uppercase characters in the password?");
+  var includeNumeric = confirm("Include numeric characters in the password?");
+  var includeSpecial = confirm("Include special characters in the password?");
+
   var passwordLength = prompt("Enter the desired password length (8-128 characters):");
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Enter correct number");

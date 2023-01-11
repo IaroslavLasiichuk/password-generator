@@ -19,10 +19,6 @@ function generatePassword() {
     alert('OK Mayby next time');
     return;
   }
-  var includeLowercase = confirm("Include lowercase characters in the password?");
-  var includeUppercase = confirm("Include uppercase characters in the password?");
-  var includeNumeric = confirm("Include numeric characters in the password?");
-  var includeSpecial = confirm("Include special characters in the password?");
 }
 
 // Write password to the #password input

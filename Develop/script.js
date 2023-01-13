@@ -18,7 +18,6 @@ function generatePassword() {
   // Validate the user's input
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Please enter correct number at least 8 characters and no more than 128 characters");
-    console.log(passwordLength);
     return password = '';
   }
 

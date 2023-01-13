@@ -11,15 +11,17 @@ function generatePassword() {
   var specialCharacters = "!@#$%^&*()_+-=[]{};':\"|.<>/?\\";
 
   // Initialize the password as an empty array
-  var password = [];
+  var password = '';
   // Promt user to start password generator
-  var passwordLength = prompt("Enter the desired password length (8-128 characters):");
+  var passwordLength = prompt("Enter the desired password length (at least 8 characters and no more than 128 characters):");
 
   // Validate the user's input
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Please enter correct number at least 8 characters and no more than 128 characters");
-    return;
+    console.log(passwordLength);
+    return password = '';
   }
+
   // Promt user to select for character types to include in the password
   var includeLowercase = confirm("Include lowercase characters in the password?");
   var includeUppercase = confirm("Include uppercase characters in the password?");
@@ -27,7 +29,7 @@ function generatePassword() {
   var includeSpecial = confirm("Include special characters in the password?");
 
   // Use a for loop to continuously prompt the user for password criteria until at least one character type is selected
-  if (passwordLength > 8 && passwordLength < 128) {
+  if (passwordLength >= 8 && passwordLength <= 128) {
     for (let i = 0; i < passwordLength; i++) {
 
       // Initialize the character list as an empty string
@@ -60,11 +62,9 @@ function generatePassword() {
   // Validate the user's input
   if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
     alert("You must select at least one character type to include in the password!");
-    generatePassword();
   }
   return password;
 }
-
 
 // Write password to the #password input
 function writePassword() {

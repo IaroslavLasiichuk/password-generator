@@ -20,12 +20,13 @@ function generatePassword() {
     alert("Please enter correct number at least 8 characters and no more than 128 characters");
     return password = '';
   }
-
+ 
   // Promt user to select for character types to include in the password
   var includeLowercase = confirm("Include lowercase characters in the password?");
   var includeUppercase = confirm("Include uppercase characters in the password?");
   var includeNumeric = confirm("Include numeric characters in the password?");
   var includeSpecial = confirm("Include special characters in the password?");
+  
 
   // Use a for loop to continuously prompt the user for password criteria until at least one character type is selected
   if (passwordLength >= 8 && passwordLength <= 128) {
@@ -58,9 +59,11 @@ function generatePassword() {
       password += charList[index];
     }
   }
+
   // Validate the user's input
   if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
     alert("You must select at least one character type to include in the password!");
+    return password = '';
   }
   return password;
 }

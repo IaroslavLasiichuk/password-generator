@@ -27,34 +27,26 @@ function generatePassword() {
   var includeNumeric = confirm("Include numeric characters in the password?");
   var includeSpecial = confirm("Include special characters in the password?");
   
-
   // Use a for loop to continuously prompt the user for password criteria until at least one character type is selected
   if (passwordLength >= 8 && passwordLength <= 128) {
     for (let i = 0; i < passwordLength; i++) {
-
       // Initialize the character list as an empty string
       var charList = "";
-
       // Prompt the user for password criteria
       if (includeLowercase) {
         charList += lowerCases;
       }
-
       if (includeUppercase) {
         charList += upperCases;
       }
-
       if (includeNumeric) {
         charList += numbers;
       }
-
       if (includeSpecial) {
         charList += specialCharacters;
       }
-
       // Generate a random index to select a character from the charList
       var index = Math.floor(Math.random() * charList.length);
-
       // Add the character at the randomly-selected index to the password
       password += charList[index];
     }
